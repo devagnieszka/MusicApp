@@ -13,9 +13,12 @@ public class Song implements Serializable{
 
     private ArrayList<Song> mSongs = new ArrayList<Song>();
 
+    public Song(){
         mSongs.add(new Song("New Rules", "Dua Lipa", R.drawable.newrules));
         mSongs.add(new Song("Havana", "Camilla Cabello", R.drawable.havana));
         mSongs.add(new Song("Blank Space", "Taylor Swift"));
+
+    }
 
     public Song(String title, String artist) {
         mTitle = title;

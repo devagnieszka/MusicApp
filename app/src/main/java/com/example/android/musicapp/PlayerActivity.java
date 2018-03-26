@@ -15,7 +15,6 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
-
         ImageView playlistImage = findViewById(R.id.imagePlaylist);
         playlistImage.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -24,10 +23,5 @@ public class PlayerActivity extends AppCompatActivity {
                 startActivity(i);
            }
          });
-
-
-
-
-
     }
 }

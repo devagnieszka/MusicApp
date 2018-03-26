@@ -32,39 +32,19 @@ public class SongAdapter extends ArrayAdapter<Song> {
                     R.layout.song_item, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
         Song currentSong = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
         TextView titleTextView = listItemView.findViewById(R.id.titleText);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
         titleTextView.setText(currentSong.getmTitle());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
         TextView artistTextView = listItemView.findViewById(R.id.artistText);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
         artistTextView.setText(currentSong.getmArtist());
 
-
-       ImageView albumView = listItemView.findViewById(R.id.musicIcon);
+        ImageView albumView = listItemView.findViewById(R.id.musicIcon);
         if (currentSong.hasImage()) {
           albumView.setImageResource(currentSong.getmImageResourceId());
-           }
-        //else {
-           // iconView.setVisibility(View.GONE);
-        //}
+        }
 
-      //  View layoutView = listItemView.findViewById(R.id.layout_vertical);
-       // int color = ContextCompat.getColor(getContext(), mColorBackground);
-        //layoutView.setBackgroundColor(color);
-
-
-
-
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
-        // so that it can be shown in the ListView
         return listItemView;
     }
 }

@@ -7,8 +7,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,19 +24,20 @@ public class PlaylistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
 
+        ImageButton playButton = findViewById(R.id.playMediaImage);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PlaylistActivity.this, PlayerActivity.class);
+                startActivity(i);
+            }
+        });
 
-/*        ArrayList<Song> mSongs = new ArrayList<Song>();
-
-        mSongs.add(new Song("New Rules", "Dua Lipa", R.drawable.newrules));
-        mSongs.add(new Song("Havana", "Camilla Cabello", R.drawable.havana));
-        mSongs.add(new Song("Blank Space", "Taylor Swift"));
-
-
-        SongAdapter adapter = new SongAdapter(this, mSongs);
-        final ListView listOfSongsView = (ListView) findViewById(R.id.listOfSongs);
+        Song song = new Song();
+        ArrayList<Song> songs = song.getmSongs();
+        SongAdapter adapter = new SongAdapter(this,    songs);
+        ListView listOfSongsView = (ListView) findViewById(R.id.listOfSongs);
         listOfSongsView.setAdapter(adapter);
-
-        long d;
 
         listOfSongsView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -41,19 +45,9 @@ public class PlaylistActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View v, int position,
                                     long arg3)
             {
-                Song song = (Song)listOfSongsView.getAdapter().getItem(position);
-               // String value = (String)adapter.getItemAtPosition(position);
-                // assuming string and if you want to get the value on click of list item
-                // do what you intend to do on click of listview row
-
-
                 Intent i = new Intent(PlaylistActivity.this, PlayerActivity.class);
-                i.putExtra("MyCSong", song);
                 startActivity(i);
-
-
             }
-        });*/
+        });
     }
-
 }
