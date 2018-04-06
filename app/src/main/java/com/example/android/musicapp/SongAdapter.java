@@ -20,14 +20,15 @@ import java.util.ArrayList;
 public class SongAdapter extends ArrayAdapter<Song> {
 
     public SongAdapter(Activity context, ArrayList<Song> songs) {
-        super(context,0, songs);
+        super(context, 0, songs);
 
     }
+
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
 
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.song_item, parent, false);
         }
@@ -42,7 +43,7 @@ public class SongAdapter extends ArrayAdapter<Song> {
 
         ImageView albumView = listItemView.findViewById(R.id.musicIcon);
         if (currentSong.hasImage()) {
-          albumView.setImageResource(currentSong.getmImageResourceId());
+            albumView.setImageResource(currentSong.getmImageResourceId());
         }
 
         return listItemView;
